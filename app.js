@@ -93,6 +93,6 @@ app.listen(8080, () => {
 
 //wrapAsync for error handling and throwing
 app.use((err, req, res, next) => {
-  let { statuscode = 500, message = "Something Went Wrong" } = err;
-  res.status(statuscode).render("listings/error.ejs", { message });
+  let { statusCode = 500, message = "Something Went Wrong" } = err;
+  res.status(statusCode).render("listings/error.ejs", { message });
 });

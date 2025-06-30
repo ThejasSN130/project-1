@@ -25,10 +25,12 @@ module.exports.index = async (req, res) => {
   res.render("listings/index.ejs", { allListings });
 };
 
-module.exports.new = async (req, res) => {
+module.exports.new = (req, res) => {
+  res.render("listings/new.ejs");
+};
+module.exports.create = async (req, res) => {
   try {
-    const { location } = req.body.listing; // Only city name
-
+    const { location } = req.body.listing;
     const geoRes = await axios.get(
       "https://nominatim.openstreetmap.org/search",
       {
